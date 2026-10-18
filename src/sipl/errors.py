@@ -25,3 +25,10 @@ class SiplError(Exception):
 
 class SiplSyntaxError(SiplError):
     stage = "parse"
+
+class SiplRuntimeError(SiplError):
+    stage = "run"
+
+class ExecutionLimitExceeded(SiplRuntimeError):
+    # The program ran out of its step budget (most likely an infinite loop).
+    pass
