@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sipl-toolkit"
+dynamic = ["version"]  # версія береться з src/sipl/__init__.py
+description = "SIPL Language Toolkit"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "amiadesu" }]
+dependencies = [
+    "lark>=1.2,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-cov>=5",
+    "ruff>=0.6",
+]
+
+[project.urls]
+Repository = "https://github.com/amiadesu/sipl-toolkit"
+
+[tool.hatch.version]
+path = "src/sipl/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/sipl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=sipl --cov-report=term-missing"
+
+[tool.coverage.report]
+fail_under = 80
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
