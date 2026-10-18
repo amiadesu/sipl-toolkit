@@ -1,0 +1,6 @@
+{
+  "description": "Ключові слова зарезервовані й не можуть бути іменами змінних",
+  "command": "check",
+  "expect_exit": 1,
+  "expect": {"status": "error", "error": {"stage": "parse", "span": {"line": 1, "column": 13}}}
+}

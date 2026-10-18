@@ -1,0 +1,1 @@
+begin if X = 1 ∨ Z = 1 then R := 1 else R := 0 end

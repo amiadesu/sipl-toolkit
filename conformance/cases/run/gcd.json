@@ -1,0 +1,7 @@
+{
+  "description": "НСД алгоритмом Евкліда (відніманням)",
+  "command": "run",
+  "initial_state": {"A": 48, "B": 18},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"A": 6, "B": 6}}
+}

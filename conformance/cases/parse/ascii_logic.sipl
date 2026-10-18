@@ -1,0 +1,1 @@
+begin while not (X = 0) or X > 1 do skip end

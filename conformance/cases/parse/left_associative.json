@@ -1,0 +1,21 @@
+{
+  "description": "Віднімання лівоасоціативне: (8 - 4) - 2",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "value": {
+          "type": "BinOp", "op": "-",
+          "left": {
+            "type": "BinOp", "op": "-",
+            "left": {"type": "Num", "value": 8},
+            "right": {"type": "Num", "value": 4}
+          },
+          "right": {"type": "Num", "value": 2}
+        }
+      }
+    }
+  }
+}

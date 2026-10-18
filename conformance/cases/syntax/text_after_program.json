@@ -1,0 +1,6 @@
+{
+  "description": "Програма - це рівно один блок begin ... end (P1)",
+  "command": "check",
+  "expect_exit": 1,
+  "expect": {"status": "error", "error": {"stage": "parse", "span": {"line": 1, "column": 15}}}
+}

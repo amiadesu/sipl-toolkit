@@ -1,0 +1,19 @@
+{
+  "description": "Послідовність бінарна й лівоасоціативна: (A; B); C",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "type": "Seq",
+        "first": {
+          "type": "Seq",
+          "first": {"type": "Assign", "target": {"name": "A"}},
+          "second": {"type": "Assign", "target": {"name": "B"}}
+        },
+        "second": {"type": "Assign", "target": {"name": "C"}}
+      }
+    }
+  }
+}

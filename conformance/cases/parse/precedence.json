@@ -1,0 +1,24 @@
+{
+  "description": "'*' зв'язує сильніше за '+'",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "type": "Program",
+      "body": {
+        "type": "Assign",
+        "target": {"type": "Var", "name": "X"},
+        "value": {
+          "type": "BinOp", "op": "+",
+          "left": {"type": "Num", "value": 1},
+          "right": {
+            "type": "BinOp", "op": "*",
+            "left": {"type": "Num", "value": 2},
+            "right": {"type": "Num", "value": 3}
+          }
+        }
+      }
+    }
+  }
+}

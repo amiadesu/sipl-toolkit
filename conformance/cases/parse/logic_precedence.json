@@ -1,0 +1,19 @@
+{
+  "description": "'¬' зв'язує сильніше за '∨': (¬ X = 1) ∨ (X > 1)",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "type": "While",
+        "cond": {
+          "type": "Or",
+          "left": {"type": "Not", "operand": {"type": "Compare", "op": "="}},
+          "right": {"type": "Compare", "op": ">"}
+        },
+        "body": {"type": "Skip"}
+      }
+    }
+  }
+}

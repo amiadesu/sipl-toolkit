@@ -1,0 +1,7 @@
+{
+  "description": "Нескінченний цикл зупиняється на ліміті кроків",
+  "command": "run",
+  "max_steps": 100,
+  "expect_exit": 4,
+  "expect": {"status": "error", "error": {"stage": "run"}}
+}

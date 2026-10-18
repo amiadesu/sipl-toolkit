@@ -1,0 +1,6 @@
+{
+  "description": "Від'ємні числа й пріоритети: 2 - (7 * -3) = 23",
+  "command": "run",
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"Z": 23}}
+}

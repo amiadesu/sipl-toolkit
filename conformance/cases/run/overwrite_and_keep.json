@@ -1,0 +1,7 @@
+{
+  "description": "Присвоювання перезаписує змінну; змінні початкового стану, яких програма не чіпає, зберігаються",
+  "command": "run",
+  "initial_state": {"Other": 5},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"Other": 5, "X": 2}}
+}

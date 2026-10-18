@@ -1,0 +1,7 @@
+{
+  "description": "Факторіал: F = N!",
+  "command": "run",
+  "initial_state": {"N": 5},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"F": 120, "N": 1}}
+}

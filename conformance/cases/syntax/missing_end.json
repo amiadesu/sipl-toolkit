@@ -1,0 +1,6 @@
+{
+  "description": "Програма обривається без end; позиція кінця вводу не перевіряється",
+  "command": "check",
+  "expect_exit": 1,
+  "expect": {"status": "error", "error": {"stage": "parse"}}
+}

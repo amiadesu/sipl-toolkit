@@ -1,0 +1,7 @@
+{
+  "description": "Якщо умова одразу хибна, тіло while не виконується жодного разу",
+  "command": "run",
+  "initial_state": {"X": 0},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"X": 0}}
+}

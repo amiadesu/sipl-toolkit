@@ -1,0 +1,7 @@
+{
+  "description": "Степінь: R = X^Y",
+  "command": "run",
+  "initial_state": {"X": 2, "Y": 10},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"R": 1024, "X": 2, "Y": 0}}
+}

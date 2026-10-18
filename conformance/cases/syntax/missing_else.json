@@ -1,0 +1,6 @@
+{
+  "description": "if без else (S3 вимагає обидві гілки); помилка на end",
+  "command": "check",
+  "expect_exit": 1,
+  "expect": {"status": "error", "error": {"stage": "parse", "span": {"line": 1, "column": 28}}}
+}

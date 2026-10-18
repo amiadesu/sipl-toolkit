@@ -1,0 +1,6 @@
+{
+  "description": "Унарного мінуса немає: мінус належить лише числу (-1), а не змінній",
+  "command": "check",
+  "expect_exit": 1,
+  "expect": {"status": "error", "error": {"stage": "parse", "span": {"line": 1, "column": 12}}}
+}

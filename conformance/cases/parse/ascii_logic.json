@@ -1,0 +1,17 @@
+{
+  "description": "'or' і 'not' - альтернативний запис '∨' і '¬'",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "cond": {
+          "type": "Or",
+          "left": {"type": "Not", "operand": {"type": "Compare", "op": "=", "right": {"value": 0}}},
+          "right": {"type": "Compare", "op": ">"}
+        }
+      }
+    }
+  }
+}

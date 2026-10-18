@@ -1,0 +1,7 @@
+{
+  "description": "'∨' обчислює обидві частини: ліва істинна, але права читає змінну без значення",
+  "command": "run",
+  "initial_state": {"X": 1},
+  "expect_exit": 3,
+  "expect": {"status": "error", "error": {"stage": "run", "span": {"line": 1, "column": 18}}}
+}

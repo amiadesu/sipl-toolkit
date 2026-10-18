@@ -1,0 +1,17 @@
+{
+  "description": "Мінус без пробілу перед цифрою там, де очікується операнд, належить числу",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "value": {
+          "type": "BinOp", "op": "-",
+          "left": {"type": "Var", "name": "Y"},
+          "right": {"type": "Num", "value": -1}
+        }
+      }
+    }
+  }
+}

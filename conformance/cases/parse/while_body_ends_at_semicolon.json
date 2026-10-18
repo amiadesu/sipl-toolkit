@@ -1,0 +1,19 @@
+{
+  "description": "Тіло while - один оператор: while b do S1; S2 означає (while b do S1); S2",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "type": "Seq",
+        "first": {
+          "type": "While",
+          "cond": {"type": "Compare", "op": ">"},
+          "body": {"type": "Assign", "target": {"name": "X"}}
+        },
+        "second": {"type": "Assign", "target": {"name": "Y"}}
+      }
+    }
+  }
+}

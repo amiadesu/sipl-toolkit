@@ -1,0 +1,7 @@
+{
+  "description": "Модулі двох чисел і їхній максимум: обидві гілки if і від'ємні значення",
+  "command": "run",
+  "initial_state": {"X": -7, "Y": 3},
+  "expect_exit": 0,
+  "expect": {"status": "ok", "state": {"M": 7, "X": 7, "Y": 3}}
+}

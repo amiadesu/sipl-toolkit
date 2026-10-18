@@ -1,0 +1,5 @@
+begin
+  if 0 > X then X := 0 - X else skip;
+  if 0 > Y then Y := 0 - Y else skip;
+  if X > Y ∨ X = Y then M := X else M := Y
+end

@@ -1,0 +1,6 @@
+{
+  "description": "Коректна програма проходить перевірку синтаксису",
+  "command": "check",
+  "expect_exit": 0,
+  "expect": {"status": "ok", "error": null}
+}

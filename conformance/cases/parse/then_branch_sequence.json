@@ -1,0 +1,19 @@
+{
+  "description": "Гілка then обмежена словами then ... else, тому може містити ';'",
+  "command": "parse",
+  "expect_exit": 0,
+  "expect": {
+    "status": "ok",
+    "ast": {
+      "body": {
+        "type": "If",
+        "then_branch": {
+          "type": "Seq",
+          "first": {"type": "Assign", "target": {"name": "M"}},
+          "second": {"type": "Assign", "target": {"name": "D"}}
+        },
+        "else_branch": {"type": "Assign", "target": {"name": "M"}}
+      }
+    }
+  }
+}

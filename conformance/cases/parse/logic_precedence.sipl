@@ -1,0 +1,1 @@
+begin while ¬ X = 1 ∨ X > 1 do skip end

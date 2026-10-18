@@ -1,0 +1,10 @@
+{
+  "description": "Читання змінної без значення - помилка виконання на місці змінної; стан на момент помилки зберігається",
+  "command": "run",
+  "expect_exit": 3,
+  "expect": {
+    "status": "error",
+    "state": {"X": 1},
+    "error": {"stage": "run", "span": {"line": 3, "column": 8}}
+  }
+}
