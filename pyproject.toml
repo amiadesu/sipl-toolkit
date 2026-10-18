@@ -20,6 +20,9 @@ dev = [
     "ruff>=0.6",
 ]
 
+[project.scripts]
+sipl = "sipl.cli:main"
+
 [project.urls]
 Repository = "https://github.com/amiadesu/sipl-toolkit"
 
