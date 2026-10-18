@@ -8,8 +8,6 @@ dynamic = ["version"]  # версія береться з src/sipl/__init__.py
 description = "SIPL Language Toolkit"
 readme = "README.md"
 requires-python = ">=3.11"
-license = "MIT"
-license-files = ["LICENSE"]
 authors = [{ name = "amiadesu" }]
 dependencies = [
     "lark>=1.2,<2",
