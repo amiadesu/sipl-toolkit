@@ -33,6 +33,9 @@ jobs:
       - name: Tests
         run: pytest
 
+      - name: Conformance
+        run: python conformance/runner.py -v
+
   build:
     name: Build package
     runs-on: ubuntu-latest
