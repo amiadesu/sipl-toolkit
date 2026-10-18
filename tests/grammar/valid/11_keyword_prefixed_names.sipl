@@ -1,0 +1,6 @@
+begin
+  ending := 1;
+  doX := ending;
+  orr := 2;
+  skipped := doX + orr
+end

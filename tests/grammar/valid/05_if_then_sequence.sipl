@@ -1,0 +1,3 @@
+begin
+  if X > Y then M := X; D := X - Y else M := Y
+end

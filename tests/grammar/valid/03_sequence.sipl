@@ -1,0 +1,1 @@
+begin X := 1; Y := X; Z := X + Y end
