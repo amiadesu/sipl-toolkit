@@ -1,0 +1,65 @@
+// SIPL (SImple Programming Language) grammar.
+//
+// Precedence is encoded by rule levels (aexp -> aterm -> afactor, ...);
+// All binary operators (; + - * or) are left-associative;
+//
+// Rules prefixed with `?` are helper precedence levels - Lark creates no tree nodes for them. 
+// Every node of the parse tree is one application of a course rule, named by its alias (`-> name`).
+
+// ---- P: program ----
+
+program: "begin" stmt "end"                                          // P1
+
+// ---- S: statements ----
+
+?stmt: stmt ";" simple_stmt                            -> seq        // S2
+     | simple_stmt
+
+?simple_stmt: var ":=" aexp                            -> assign     // S1
+            | "if" bexp "then" stmt "else" simple_stmt -> if_else    // S3
+            | "while" bexp "do" simple_stmt            -> while_do   // S4
+            | "begin" stmt "end"                       -> block      // S5
+            | "skip"                                   -> skip       // S6
+
+// ---- a: arithmetic expressions ----
+
+?aexp: aexp "+" aterm                                  -> add        // A3
+     | aexp "-" aterm                                  -> sub        // A4
+     | aterm
+
+?aterm: aterm "*" afactor                              -> mul        // A5
+      | afactor
+
+?afactor: num                                          -> a_num      // A1
+        | var                                          -> a_var      // A2
+        | "(" aexp ")"                                 -> aparen     // A6
+
+// ---- b: boolean conditions ----
+
+?bexp: bexp ("∨" | "or") bterm                         -> disj       // B3
+     | bterm
+
+?bterm: ("¬" | "not") bterm                            -> neg        // B4
+      | batom
+
+?batom: aexp "=" aexp                                  -> eq         // B1
+      | aexp ">" aexp                                  -> gt         // B2
+      | "(" bexp ")"                                   -> bparen     // B5
+
+// ---- x, n: variables and numbers ----
+
+var: NAME                                                            // NV
+num: NUMBER                                                          // NN
+
+// ---- Lexical rules ----
+
+// A variable name: a Latin letter followed by letters, 
+// digits or `_`, keywords are reserved explicitly.
+// Names like `ending`, `doX` or `end_1` are still allowed thanks to `\b`.
+NAME: /(?!(begin|end|if|then|else|while|do|skip|or|not)\b)[A-Za-z][A-Za-z0-9_]*/
+
+// An integer, possibly negative (n ::= ... -1 | 0 | 1 | ...).
+NUMBER: /-?[0-9]+/
+
+%import common.WS
+%ignore WS
