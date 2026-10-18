@@ -27,7 +27,7 @@
 
 ```bash
 git clone https://github.com/amiadesu/sipl-toolkit.git
-cd sipl
+cd sipl-toolkit
 python -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
