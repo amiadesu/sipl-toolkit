@@ -27,6 +27,9 @@ jobs:
       - name: Lint
         run: ruff check .
 
+      - name: Install Graphviz
+        run: sudo apt-get install -y graphviz
+
       - name: Tests
         run: pytest
 
