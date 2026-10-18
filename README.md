@@ -2,10 +2,10 @@
 
 [![CI](https://github.com/amiadesu/sipl-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/amiadesu/sipl-toolkit/actions/workflows/ci.yml)
 
-## Обрані завдання курсового проєкту
+## Обрані завдання лабораторної роботи
 
 | ID | Завдання | Бали |
-|---|---|---|---|
+|---|---|---|
 | CORE-01 | Формальна специфікація SIPL (граматика Lark, ≥10 позитивних і ≥10 негативних тестів) | 0.5 |
 | CORE-02 | Парсер і типізоване AST із `SourceSpan` | 1.5 |
 | CORE-03 | Інтерпретатор SIPL з лімітом кроків, покриття ядра ≥80% | 2.0 |
