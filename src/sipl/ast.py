@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields, is_dataclass
 
 @dataclass(frozen=True)
 class SourceSpan:
@@ -112,3 +112,14 @@ class Program:  # P1
     span: SourceSpan | None = _span()
 
 Node = Program | Stmt | Expr | Cond
+
+def to_dict(node: Node) -> dict:
+    # {"type": "BinOp", "op": "+", "left": {...}, "right": {...}, "span": {...}}
+    data = {"type": type(node).__name__}
+    for node_field in fields(node):
+        if node_field.name == "span":
+            continue
+        value = getattr(node, node_field.name)
+        data[node_field.name] = to_dict(value) if is_dataclass(value) else value
+    data["span"] = node.span.to_dict() if node.span else None
+    return data
