@@ -60,7 +60,7 @@ def test_every_course_rule_is_used_by_valid_programs():
     for path in VALID:
         tree = parse(path.read_text(encoding="utf-8"))
         used.update(subtree.data for subtree in tree.iter_subtrees())
-    assert set(RULES) - used == set()
+    assert set(RULES) - used == set() # all course rules are used by at least one valid program.
 
 def test_every_course_rule_exists_in_grammar():
     text = grammar_text()
