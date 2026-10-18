@@ -11,15 +11,8 @@ from sipl.visualization.parse_tree import build, category, to_dict, to_dot, to_j
 CASES = Path(__file__).resolve().parent / "grammar"
 VALID = sorted((CASES / "valid").glob("*.sipl"))
 
-POWER = """\
-begin
-  R := 1;
-  while Y > 0 do
-  begin
-    R := R * X;
-    Y := Y - 1
-  end
-end"""
+EXAMPLES = Path(__file__).resolve().parent.parent / "examples"
+POWER = (EXAMPLES / "power.sipl").read_text(encoding="utf-8")
 
 def walk(node):
     yield node

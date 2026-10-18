@@ -26,15 +26,8 @@ CASES = Path(__file__).resolve().parent / "grammar"
 VALID = sorted((CASES / "valid").glob("*.sipl"))
 INVALID = sorted((CASES / "invalid").glob("*.sipl"))
 
-POWER = """\
-begin
-  R := 1;
-  while Y > 0 do
-  begin
-    R := R * X;
-    Y := Y - 1
-  end
-end"""
+EXAMPLES = Path(__file__).resolve().parent.parent / "examples"
+POWER = (EXAMPLES / "power.sipl").read_text(encoding="utf-8")
 
 def body(source: str):
     return parse(f"begin {source} end").body
