@@ -22,7 +22,7 @@ jobs:
           activate-environment: true
 
       - name: Install
-        run: uv pip install -e ".[dev]"
+        run: uv pip install -e ".[dev,web]"
 
       - name: Lint
         run: ruff check .
@@ -35,6 +35,27 @@ jobs:
 
       - name: Conformance
         run: python conformance/runner.py -v
+
+  frontend:
+    name: Build web frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: web/frontend
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/frontend/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Type-check and build
+        run: npm run build
 
   build:
     name: Build package
