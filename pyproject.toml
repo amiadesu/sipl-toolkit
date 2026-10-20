@@ -39,7 +39,7 @@ packages = ["src/sipl"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--cov=sipl --cov-report=term-missing"
+addopts = "--cov=sipl --cov=web/backend --cov-report=term-missing"
 
 [tool.coverage.report]
 fail_under = 80
