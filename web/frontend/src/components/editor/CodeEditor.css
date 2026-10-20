@@ -1,0 +1,31 @@
+.code-editor {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+}
+
+.code-editor .cm-editor {
+  height: 100%;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.code-editor .cm-scroller {
+  overflow: auto;
+}
+
+/* @uiw/react-codemirror puts a themed wrapper between this element and
+   .cm-editor. Percentage heights only resolve against a parent whose own
+   height is known, so without this the editor grows to fit its content and
+   .cm-scroller never has anything to scroll. */
+.code-editor > * {
+  height: 100%;
+  min-height: 0;
+}
+
+.code-editor .cm-sipl-highlight {
+  background: var(--color-highlight);
+  border-radius: 2px;
+}
