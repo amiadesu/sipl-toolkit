@@ -22,6 +22,7 @@
 ## Вимоги
 
 - Python >=3.11
+- Node.js >=20 (для веб-інтерфейсу)
 
 ## Встановлення
 
@@ -30,15 +31,38 @@ git clone https://github.com/amiadesu/sipl-toolkit.git
 cd sipl-toolkit
 python -m venv .venv
 source .venv/bin/activate
-pip install -e ".[dev]"
+pip install -e ".[dev,web]"
 ```
 
-## Розробка
+`.[dev]` - тести й лінтер, `.[web]` - backend веб-інтерфейсу. Для роботи лише з CLI
+достатньо `pip install -e .`.
+
+## Запуск
+
+Командний рядок (опис команд, кодів завершення й JSON-формату - у [docs/cli.md](docs/cli.md)):
+
+```bash
+sipl check examples/power.sipl
+sipl run examples/power.sipl -s X=2 -s Y=10
+sipl trace examples/power.sipl -s X=2 -s Y=10
+sipl tree examples/power.sipl --rules
+```
+
+Веб-інтерфейс (backend на http://localhost:8000, сторінка на http://localhost:5173):
+
+```bash
+./start.sh
+```
+
+## Тестування реалізації мови
 
 ```bash
 ruff check .
 pytest
+python conformance/runner.py
 ```
+
+Формат conformance-тестів описано в [conformance/README.md](conformance/README.md).
 
 ## Структура репозиторію
 
@@ -47,5 +71,8 @@ src/sipl/        ядро мови (бібліотека): граматика, �
 tests/           автоматичні тести
 examples/        приклади SIPL-програм
 conformance/     conformance suite, незалежний від реалізації
-docs/            документація: граматика, CLI, архітектура
+web/backend/     FastAPI backend веб-інтерфейсу
+web/frontend/    веб-інтерфейс (React + Vite)
+docs/            документація до проєкту
+start.sh         запуск веб-інтерфейсу
 ```
