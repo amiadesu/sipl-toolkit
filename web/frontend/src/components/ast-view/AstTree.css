@@ -1,0 +1,153 @@
+.ast-tree {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: var(--color-panel);
+}
+
+.ast-tree--empty {
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.ast-tree--fullscreen {
+  position: fixed;
+  inset: 12px;
+  z-index: 50;
+  background: var(--color-panel);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55);
+}
+
+.ast-tree-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.ast-tree-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ast-tree-hint {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.ast-tree-button {
+  flex-shrink: 0;
+  background: var(--color-panel-raised);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.ast-tree-button:hover {
+  color: var(--color-text);
+  border-color: var(--color-accent);
+}
+
+.ast-tree-canvas {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.ast-tree-canvas:active {
+  cursor: grabbing;
+}
+
+.ast-link {
+  fill: none;
+  stroke: var(--color-border);
+  stroke-width: 1.5px;
+}
+
+.ast-node {
+  cursor: pointer;
+}
+
+.ast-node-hit {
+  fill: transparent;
+}
+
+.ast-node-dot {
+  fill: var(--color-panel);
+  stroke: var(--color-accent);
+  stroke-width: 1.5px;
+}
+
+.ast-node--collapsed .ast-node-dot {
+  fill: var(--color-accent);
+}
+
+.ast-node-type {
+  fill: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.ast-node-label {
+  fill: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.ast-node-role {
+  fill: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  opacity: 0.75;
+}
+
+.ast-node-count {
+  fill: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+.ast-tree--stale .ast-tree-canvas {
+  opacity: 0.45;
+}
+
+.ast-tree--stale .ast-tree-hint {
+  color: var(--color-warning);
+}
+
+.ast-node--terminal .ast-node-type {
+  fill: var(--color-terminal);
+}
+
+.ast-node--terminal .ast-node-dot {
+  stroke: var(--color-terminal);
+}
+
+.ast-node--selected .ast-node-dot {
+  fill: var(--color-warning);
+  stroke: var(--color-warning);
+  r: 7px;
+}
+
+.ast-node--selected .ast-node-type {
+  fill: var(--color-warning);
+  font-weight: 700;
+}
